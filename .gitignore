@@ -1,3 +1,4 @@
+# Maven相关文件
 target/
 pom.xml.tag
 pom.xml.releaseBackup
@@ -15,3 +16,90 @@ buildNumber.properties
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Eclipse (其他Eclipse相关文件)
+.settings/
+*.launch
+bin/
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.netbeans/
+
+# VS Code
+.vscode/
+
+# 操作系统文件
+## Mac OS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+## Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# 编辑器备份文件
+*~
+*.swp
+*.swo
+*.tmp
+*.bak
+
+# 日志文件
+*.log
+logs/
+
+# 环境配置文件（敏感信息）
+.env
+*.env.*
+!.env.example
+
+# 覆盖率报告和测试结果
+jacoco/
+coverage/
+*.exec
+
+# Spring Boot相关
+*.jar
+*.war
+*.ear
+*.nar
+
+# Java编译输出
+*.class
+*.classfiles
+
+# Maven本地仓库（可选，通常不需要）
+.repository/
+
+# Spring相关临时文件
+.springBeans
