@@ -3,32 +3,28 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.xxx</groupId>
-    <artifactId>sentinel</artifactId>
+    <groupId>com.example</groupId>
+    <artifactId>tutorial</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <modules>
-        <module>sentinel01</module>
+        <module>clientA</module>
+        <module>Consumer</module>
+        <module>Producer</module>
     </modules>
-    <name>sentinel</name>
-    <description>sentinel</description>
+    <name>tutorial</name>
+    <description>tutorial</description>
 
-    <!--统一管理jar包版本-->
     <properties>
         <java.version>17</java.version>
-<!--        <spring-boot.version>2.6.11</spring-boot.version>-->
-<!--        <spring-cloud.version>2021.0.4</spring-cloud.version>-->
-<!--        <spring-cloud-alibaba.version>2021.0.4.0</spring-cloud-alibaba.version>-->
-        <spring-boot.version>3.0.13</spring-boot.version>
-        <spring-cloud.version>2022.0.5</spring-cloud.version>
-        <spring-cloud-alibaba.version>2022.0.0.0</spring-cloud-alibaba.version>
-        <junit5.version>5.11.0</junit5.version>
+        <spring-boot.version>2.7.18</spring-boot.version>
+        <spring-cloud.version>2021.0.9</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
+        <junit.version>4.12</junit.version>
     </properties>
-    <!-- 只声明依赖，并不引入依赖 -->
     <dependencyManagement>
-        <!--子模块继承后,提供作用:锁定版本+子module不用groupId和version-->
         <dependencies>
-            <!-- spring boot 依赖版本号管理 -->
+            <!-- spring boot 依赖版本管理-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -36,7 +32,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!-- spring cloud 依赖版本号管理 -->
+            <!-- spring cloud 依赖版本管理 -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -44,7 +40,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!-- spring cloud alibaba 依赖版本号管理 -->
+            <!-- spring cloud alibaba 依赖版本管理 -->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
@@ -52,30 +48,34 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
             <dependency>
-                <groupId>org.junit</groupId>
-                <artifactId>junit-bom</artifactId>
-                <version>${junit5.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <!-- spring boot mvc 依赖版本管理 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-api</artifactId>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
                 <scope>test</scope>
             </dependency>
-            <!-- Optionally: parameterized tests support -->
-            <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-params</artifactId>
-                <scope>test</scope>
-            </dependency>
-            <!-- 需要什么就添加什么 -->
-            <!-- ...... -->
         </dependencies>
     </dependencyManagement>
-
-
+    <build>
+        <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
 </project>
